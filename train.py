@@ -22,10 +22,11 @@ with open("training_data.txt", 'r', encoding="utf-8") as file:
 
 result = re.split(r'([,.?_!"()\']|--|\s)', raw_text)
 preprocessed = [i for i in result if i.split()]
-all_words = sorted(list(set(preprocessed)))
+all_tokens = sorted(list(set(preprocessed)))
+all_tokens.extend(["<|endoftext|>", "<|unk|>"])
 
 #assign each unique token an id/number
-vocab = {token: i for i, token in enumerate(all_words)}
+vocab = {token: i for i, token in enumerate(all_tokens)}
 
 tokenizer = SimpleTokenizer(vocab)
 text = "\"It's the last he painted, you know,\" Mrs. Gisburn said"
