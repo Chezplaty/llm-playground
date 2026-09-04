@@ -15,4 +15,4 @@ context_size = 4
 for i in range(1, context_size + 1):
     context = enc_sample[:i]
     desired = enc_sample[i]
-    print(f"{tokenizer.decode(context)} ----> {tokenizer.decode(desired)}")
+    print(f"{tokenizer.encode(context)} ----> {tokenizer.encode(desired)}")
